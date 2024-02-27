@@ -1,4 +1,4 @@
-# todo-rs
+# fz-rs
 
 This is a simple command-line program for getting file size written in Rust using the [Helix Editor](https://github.com/helix-editor/helix).
 
