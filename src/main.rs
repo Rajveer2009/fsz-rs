@@ -39,14 +39,20 @@ fn main() {
     };
 
     // Round the file size
-    let rounded_file_size = (file_size * 100.0).round() / 100.0;
+
+    // file size
+    let rounded_file_size = ((file_size * 100.0).round() / 100.0).to_string();
+    let formatted_file_size = rounded_file_size.bright_red();
+
+    // size metric
+    let formatted_size_metric = size_metric.bright_red();
 
     if let Some(file_name) = get_file_name(file_path) {
         println!(
             "{} -> {} {}",
-            file_name.bright_yellow(),
-            rounded_file_size.to_string().bright_red(),
-            size_metric.bright_red()
+            format!("\x1B[4m{}\x1B[0m", file_name).bright_yellow(),
+            formatted_file_size,
+            formatted_size_metric
         );
     } else {
         println!("Invalid file path.");
